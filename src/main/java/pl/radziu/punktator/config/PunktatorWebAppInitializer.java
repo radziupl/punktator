@@ -1,6 +1,7 @@
 package pl.radziu.punktator.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import pl.radziu.punktator.web.WebConfig;
 
 public class PunktatorWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
