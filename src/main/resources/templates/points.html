@@ -37,7 +37,7 @@
 
 
     [#th:block th:each="point : ${pointList}"]
-    L.marker([[#th:block th:utext="${point.longitude}" /], [#th:block th:utext="${point.latitude}" /]]).bindPopup('<b>[[${point.name}]]</b></p>[[${point.description}]]').addTo(points);
+    L.marker([[#th:block th:utext="${point.latitude}" /], [#th:block th:utext="${point.longitude}" /]]).bindPopup('<b>[[${point.name}]]</b></p>[[${point.description}]]').addTo(points);
     [/th:block]
 
 

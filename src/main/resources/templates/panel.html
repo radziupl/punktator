@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>punktator by radziu.pl</title>
+</head>
+<body>
+
+<div id="content">
+    <h1>Panel administracyjny</h1>
+    </p>
+    <hr>
+    </p>
+
+    <h2>Dodawanie punktów</h2>
+
+    <table>
+        <tr>
+            <th>długość</th>
+            <th>szerokość</th>
+            <th>nazwa</th>
+            <th>opis</th>
+        </tr>
+            <form method="POST">
+                <tr>
+                    <td><input type="text" name = "longitude"></td>
+                    <td><input type="text" name = "latitude"></td>
+                    <td><input type="text" name = "name"></td>
+                    <td><input type="text" name = "description"></td>
+                    <td><input type="submit" name ="add" value="DODAJ"/></td>
+                </tr>
+            </form>
+    </table>
+
+    </p>
+    <hr>
+    </p>
+
+    <h2>Edycja punktów</h2>
+
+    <table>
+        <tr>
+            <th>id</th>
+            <th>długość</th>
+            <th>szerokość</th>
+            <th>nazwa</th>
+            <th>opis</th>
+        </tr>
+        <form method="POST" th:each="point: ${pointList}">
+            <tr>
+                <td><input type="text" name="id" th:value="${point.id}" readonly="readonly"></td>
+                <td><input type="text" name="longitude" th:value="${point.longitude}"></td>
+                <td><input type="text" name="latitude" th:value="${point.latitude}"></td>
+                <td><input type="text" name="name" th:value="${point.name}"></td>
+                <td><input type="text" name="description" th:value="${point.description}"></td>
+                <td><input type="submit" name="update" value="ZAKTUALIZUJ"/></td>
+                <td><input type="submit" name="remove" value="USUŃ"/></td>
+            </tr>
+        </form>
+    </table>
+
+</div>
+</body>
+</html>
