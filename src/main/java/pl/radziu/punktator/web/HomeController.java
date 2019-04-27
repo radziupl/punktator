@@ -11,6 +11,6 @@ public class HomeController {
 
     @RequestMapping(method = GET)
     public String home(){
-        return "home";
+        return "points";
     }
 }

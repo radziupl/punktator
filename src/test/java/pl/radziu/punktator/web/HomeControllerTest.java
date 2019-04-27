@@ -1,12 +1,10 @@
 package pl.radziu.punktator.web;
 
-import static
-        org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static
-        org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static
-        org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.test.web.servlet.MockMvc;
 import pl.radziu.punktator.web.HomeController;
@@ -16,6 +14,6 @@ public class HomeControllerTest {
     public void testHomePage() throws Exception {
         HomeController controller = new HomeController();
         MockMvc mockMvc = standaloneSetup(controller).build();
-        mockMvc.perform(get("/")).andExpect(view().name("home"));
+        mockMvc.perform(get("/")).andExpect(view().name("points"));
     }
 }

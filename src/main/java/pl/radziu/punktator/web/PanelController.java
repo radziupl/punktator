@@ -37,12 +37,14 @@ public class PanelController {
     }
 
     @RequestMapping(params = {"update"})
-    public void updatePoint(Point point) {
+    public String updatePoint(Point point) {
         pointRepository.updatePoint(point);
+        return "redirect:points";
     }
 
     @RequestMapping(params = {"remove"})
-    public void deletePoint(Point point) {
+    public String deletePoint(Point point) {
         pointRepository.deletePoint(point);
+        return "redirect:points";
     }
 }
