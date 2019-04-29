@@ -8,10 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.BeanNameViewResolver;
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -24,6 +21,20 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 @EnableWebMvc
 @ComponentScan("pl.radziu.punktator.web")
 public class WebConfig implements WebMvcConfigurer {
+
+    private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
+            "classpath:/resources/", "classpath:/static/"};
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/**").addResourceLocations(
+                CLASSPATH_RESOURCE_LOCATIONS);
+    }
+//    @Override
+//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+//        WebMvcConfigurer.super.addResourceHandlers(registry);
+//    }
 
 //    @Override
 //    public void configureContentNegotiation(ContentNegotiationConfigurer configurer){

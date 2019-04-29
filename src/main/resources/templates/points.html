@@ -1,11 +1,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 
-    <title>punktator by radziu.pl</title>
+    <title th:text="${mapSettings.title}">Map Title</title>
 
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -50,8 +50,8 @@
         streets = L.tileLayer(mbUrl, {id: 'mapbox.streets', attribution: mbAttr});
 
     var map = L.map('map', {
-        center: [51.77, 19.45],
-        zoom: 13,
+        center: [[#th:block th:utext="${mapSettings.latitude}" /], [#th:block th:utext="${mapSettings.longitude}" /]],
+        zoom: [#th:block th:utext="${mapSettings.zoom}" /],
         layers: [streets, points]
     });
 
@@ -64,9 +64,29 @@
 
     L.control.layers(baseLayers, overlays).addTo(map);
 
+    L.Control.Watermark = L.Control.extend({
+        onAdd: function(map) {
+            var img = L.DomUtil.create('img');
+
+            img.onclick = function() {
+                window.location.href = 'http://radziu.pl'};
+            img.src = 'punktator.png';
+            img.style.width = '200px';
+
+            return img;
+        },
+
+        onRemove: function(map) {
+        }
+    });
+
     L.control.watermark = function(opts) {
         return new L.Control.Watermark(opts);
     }
+
+    L.control.watermark({ position: 'bottomright' }).addTo(map);
+
+
 </script>
 
 </body>

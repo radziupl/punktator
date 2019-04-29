@@ -1,0 +1,18 @@
+version: '3'
+services:
+    punktator_web:
+      build: ./punktator
+      ports:
+        - "8080:8080"
+      depends_on:
+        - punktator_db
+    punktator_db:
+      container_name: 'mysql'
+      image: mysql
+      environment:
+        MYSQL_USER: root
+        MYSQL_ROOT_PASSWORD: admin
+        MYSQL_PASSWORD: admin
+        MYSQL_DATABASE: punktator
+      ports:
+        - "3306:3306"

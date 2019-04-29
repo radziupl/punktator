@@ -1,2 +1,3 @@
 insert into points (name, description, latitude, longitude) values ('MANUFAKTURA', 'Centrum handlowo-uslugowo-rozrywkowe.', 51.7794644, 19.4444571);
 insert into points (name, description, latitude, longitude) values ('MONOPOLIS', 'Lodzkie centrum biurowo-rozrywkowo-kulturalne.', 51.762882, 19.485172);
+insert into mapsettings (title, latitude, longitude, zoom) values ('punktator by radziu.pl', 51.77, 19.45, 13);

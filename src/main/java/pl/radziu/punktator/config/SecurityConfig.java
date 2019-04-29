@@ -33,6 +33,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/panel*"). authenticated()
                 .antMatchers(HttpMethod.POST, "/panel*").authenticated()
+                .antMatchers("/").permitAll()
                 .anyRequest().permitAll();
     }
 }
