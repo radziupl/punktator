@@ -28,3 +28,7 @@ You can simply run application with database using Docker Compose.
 docker-compose -up
 ```
 Then run sql scripts schema.sql and data.sql
+
+### My websites
+* http://radziu.pl/
+* https://kodomaniak.pl/
