@@ -1,19 +1,42 @@
-drop table if exists POINTS;
-drop table if exists MAPSETTINGS;
+-- H2
 
-create table POINTS(
-	id bigint auto_increment,
-	name varchar(140),
-	description varchar(140),
-	latitude double,
-	longitude double
+-- drop table if exists points;
+-- drop table if exists mapsettings;
+--
+-- create table points(
+-- 	id bigint auto_increment,
+-- 	name varchar(200),
+-- 	description varchar(1000),
+-- 	latitude double,
+-- 	longitude double
+--
+-- );
+--
+-- create table mapsettings(
+-- 	id bigint auto_increment,
+-- 	title varchar(100),
+-- 	latitude double,
+-- 	longitude double,
+-- 	zoom integer
+-- );
 
-);
+-- MYSQL
 
-create table MAPSETTINGS(
-	id bigint auto_increment,
-	title varchar(140),
+create table points(
+	id int auto_increment,
+	name varchar(200),
+	description varchar(1000),
 	latitude double,
 	longitude double,
-	zoom integer
+    PRIMARY KEY (id)
+);
+
+
+create table mapsettings(
+	id int auto_increment,
+	title varchar(100),
+	latitude double,
+	longitude double,
+	zoom int,
+    PRIMARY KEY (id)
 );
